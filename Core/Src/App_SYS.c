@@ -84,7 +84,7 @@ void App_SYS_Init(void) {
     sys_ctrl.current_interval = 600000; // 默认空闲模式：10分钟
     //last_sample_tick设为 0 会导致上电后等待 10 分钟。应设为"过去的时间"以立即触发。
     sys_ctrl.last_sample_tick = HAL_GetTick() - sys_ctrl.current_interval;
-
+    printf("-------------------------------------------------------");
     printf("\r\n[App_SYS Init]\r\n");
 		printf("[ALL:%d  LED:%d  PUMP:%d  FAN:%d]\r\n",sys_ctrl.sw_master, sys_ctrl.sw_led, sys_ctrl.sw_pump, sys_ctrl.sw_fan);
 }
@@ -169,14 +169,14 @@ void App_SYS_Loop(SHT40_t *sht) {
             // 调用底层驱动读取 (注意：此处不使用加热功能，防止阻塞)
             if (App_SHT40_ReadTempHum(sht) == HAL_OK) {
                 SYS_Print_Time();
-                printf("\r\n[App_SYS Sampled:Humi=%.1f%% (Interval: %u ms)]\r\n", 
+                printf("[App_SYS Sampled:Humi=%.1f%% (Interval: %u ms)]\r\n", 
                        sht->humidity, sys_ctrl.current_interval);
                        last_read_error = 0; // 读取成功，清除错误标记
                        error_count = 0;     // 清除连续错误计数
                        App_Blink_SetFastMode(0);//PC13正常慢闪
             } else {
                 SYS_Print_Time();
-                printf("\r\n[App_SYS Sensor Read Error]\r\n");
+                printf("[App_SYS Sensor Read Error]\r\n");
                 //错误计数
                 error_count++;
                 App_Blink_SetFastMode(1);//PC13报错快闪

@@ -40,7 +40,6 @@ void App_RTC_Init(void) {
     // 1. 开启电源和备份接口时钟 (访问 BKP 必须)
     __HAL_RCC_PWR_CLK_ENABLE();
     HAL_PWR_EnableBkUpAccess();
-    printf("-------------------------------------------------------");
 
 
     // 2. 检查 BKP 标记：判断是冷启动还是热启动
@@ -105,7 +104,7 @@ void App_RTC_Init(void) {
     HAL_RTC_GetTime(&hrtc, &sTimeNow, RTC_FORMAT_BIN);
     HAL_RTC_GetDate(&hrtc, &sDateNow, RTC_FORMAT_BIN);
     
-    printf("\r\n20%02d-%02d-%02d %02d:%02d:%02d\r\n", 
+    printf("20%02d-%02d-%02d %02d:%02d:%02d\r\n", 
            sDateNow.Year, sDateNow.Month, sDateNow.Date, 
            sTimeNow.Hours, sTimeNow.Minutes, sTimeNow.Seconds);
 }

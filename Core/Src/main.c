@@ -100,6 +100,7 @@ int main(void)
   MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
   App_UART_RX_Init();  // 初始化串口接收管理器
+  App_SYS_Init();      //初始化SYS
   App_RTC_Init();     // 初始化 RTC 交互逻辑
 	App_SHT40_Init(&sht40); // 仅传入设备结构体地址，内部将自动通过软件 I2C 通信  App_SYS_Init();                    // 初始化控制系统
   /* USER CODE END 2 */
@@ -120,6 +121,8 @@ int main(void)
 
     //同步日期进位
     App_RTC_CheckAndSyncBKP();
+
+
 
 		// 命令控制
     if (cmd_ready == 1)

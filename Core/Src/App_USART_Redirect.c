@@ -2,7 +2,7 @@
 #include "usart.h"
 
 /* * 引入串口硬件句柄。
- * 如果你使用的是 UART2 或其他接口，请在这里修改为 &huart2 等。
+ * 如果你使用的是 UART2 或其他接口，请在这里修改为 huart2 等。
  */
 extern UART_HandleTypeDef huart1;
 

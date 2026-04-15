@@ -113,7 +113,7 @@ void App_SHT40_Init(SHT40_t *dev) {
     printf("\r\n[App_SHT40 Init]\r\n");
     printf("[Humi%.1f%%-%.1f%%]\r\n", 
            dev->humi_bot, dev->humi_top);
-    printf("[1.set humi_bot|2.set humi_top]\r\n\r\n");
+    printf("[1.set humi_bot|2.set humi_top]\r\n");
         App_SHT40_Print(dev); 
     printf("-------------------------------------------------------");
 
