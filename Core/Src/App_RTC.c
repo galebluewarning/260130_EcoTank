@@ -130,7 +130,7 @@ void App_RTC_ParseCommand(char *cmd_line)
         if (sscanf(cmd_line, "set time %d:%d:%d", &h, &m, &s) == 3) {
             RTC_TimeTypeDef sTime = {(uint8_t)h, (uint8_t)m, (uint8_t)s};
             if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BIN) == HAL_OK)
-                printf("[App_RTC Time Set]\r\n");
+                printf("[App_RTC Time Set]\r\n\r\n");
                 // 设置时间后，刷新一下魔术数
                 HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR_TIME, RTC_BKP_MAGIC);
         }
@@ -145,7 +145,7 @@ void App_RTC_ParseCommand(char *cmd_line)
             if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BIN) == HAL_OK){
                 // [关键] 成功设置日期后，立即同步保存到 BKP (DR2-DR4)
                 SaveDateToBKP((uint8_t)y, (uint8_t)m, (uint8_t)d);
-                printf("[App_RTC Date Set]\r\n");
+                printf("[App_RTC Date Set]\r\n\r\n");
                 HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR_TIME, RTC_BKP_MAGIC);
             }
         }
@@ -170,7 +170,7 @@ void App_RTC_CheckAndSyncBKP(void) {
 
     // 3. 对比：如果当前日期(sDate.Date) 和 BKP里的不一致
     if (sDate.Date != bkp_date) {
-        printf("\r\n[App_RTC Updating BKP:%02d->%02d]\r\n", 
+        printf("\r\n\r\n[App_RTC Updating BKP:%02d->%02d]\r\n\r\n", 
                bkp_date, sDate.Date);
                
         // 4. 将新日期写入 BKP
