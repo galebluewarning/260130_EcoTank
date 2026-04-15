@@ -3,7 +3,7 @@
 <title>Static Call Graph - [260130_EcoTank\260130_EcoTank.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image 260130_EcoTank\260130_EcoTank.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Apr 15 13:04:57 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Apr 15 14:03:48 2026
 <BR><P>
 <H3>Maximum Stack Usage =        304 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -321,6 +321,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_SYS_Loop
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_SHT40_ReadTempHum
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_SHT40_ParseCommand
 <LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_frsub
 </UL>
 
@@ -330,6 +331,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_SYS_Loop
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_SHT40_ParseCommand
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_SHT40_Init
 </UL>
 
@@ -564,7 +566,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[88]"></a>App_Blink_SetFastMode</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, app_blink.o(i.App_Blink_SetFastMode))
+<P><STRONG><a name="[89]"></a>App_Blink_SetFastMode</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, app_blink.o(i.App_Blink_SetFastMode))
 <BR><BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_SYS_Loop
 </UL>
 
@@ -632,10 +634,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[7c]"></a>App_SHT40_ParseCommand</STRONG> (Thumb, 258 bytes, Stack size 16 bytes, app_sht40.o(i.App_SHT40_ParseCommand))
-<BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = App_SHT40_ParseCommand &rArr; __0sscanf &rArr; __vfscanf_char &rArr; __vfscanf &rArr; _scanf_real
+<P><STRONG><a name="[7c]"></a>App_SHT40_ParseCommand</STRONG> (Thumb, 286 bytes, Stack size 24 bytes, app_sht40.o(i.App_SHT40_ParseCommand))
+<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = App_SHT40_ParseCommand &rArr; __0sscanf &rArr; __vfscanf_char &rArr; __vfscanf &rArr; _scanf_real
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SaveThresholdToBKP
@@ -687,12 +691,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_SHT40_Init
 </UL>
 
-<P><STRONG><a name="[86]"></a>App_SYS_Loop</STRONG> (Thumb, 406 bytes, Stack size 40 bytes, app_sys.o(i.App_SYS_Loop))
+<P><STRONG><a name="[86]"></a>App_SYS_Loop</STRONG> (Thumb, 418 bytes, Stack size 40 bytes, app_sys.o(i.App_SYS_Loop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 164<LI>Call Chain = App_SYS_Loop &rArr; SYS_Print_Time &rArr; HAL_RTC_GetDate &rArr; HAL_RTC_GetTime &rArr; RTC_DateUpdate &rArr; RTC_WeekDayNum
 </UL>
-<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_Shutdown_All
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_Print_Time
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_Shutdown_All
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_Print_Time
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
@@ -703,7 +707,7 @@ Global Symbols
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_GetDate
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_Blink_SetFastMode
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_Blink_SetFastMode
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -803,7 +807,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[89]"></a>Error_Handler</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, main.o(i.Error_Handler))
+<P><STRONG><a name="[8a]"></a>Error_Handler</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, main.o(i.Error_Handler))
 <BR><BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_TogglePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
@@ -865,13 +869,13 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[91]"></a>HAL_GPIO_TogglePin</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_TogglePin))
-<BR><BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<BR><BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 
 <P><STRONG><a name="[66]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_WritePin))
 <BR><BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_SYS_Loop
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_Shutdown_All
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_Shutdown_All
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_Simu_I2C_WaitAck
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_Simu_I2C_Stop
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_Simu_I2C_Start
@@ -1033,7 +1037,7 @@ Global Symbols
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_ByteToBcd2
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_SYS_Loop
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_Print_Time
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_Print_Time
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_RTC_ParseCommand
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_RTC_CheckAndSyncBKP
 </UL>
@@ -1049,7 +1053,7 @@ Global Symbols
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_ByteToBcd2
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_SYS_Loop
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_Print_Time
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_Print_Time
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_GetDate
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_RTC_ParseCommand
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_RTC_CheckAndSyncBKP
@@ -1209,7 +1213,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = MX_IWDG_Init &rArr; HAL_IWDG_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IWDG_Init
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1218,7 +1222,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = MX_RTC_Init &rArr; HAL_RTC_Init &rArr; HAL_RTC_WaitForSynchro
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_Init
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1227,7 +1231,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = MX_USART1_UART_Init &rArr; HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1263,7 +1267,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_PeriphCLKConfig
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1301,7 +1305,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_SYS_Loop
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_Print_Time
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_Print_Time
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_SHT40_Print
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_SHT40_ParseCommand
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_SHT40_Init
@@ -1388,7 +1392,7 @@ Local Symbols
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_SHT40_Init
 </UL>
 
-<P><STRONG><a name="[87]"></a>SYS_Print_Time</STRONG> (Thumb, 68 bytes, Stack size 24 bytes, app_sys.o(i.SYS_Print_Time))
+<P><STRONG><a name="[88]"></a>SYS_Print_Time</STRONG> (Thumb, 68 bytes, Stack size 24 bytes, app_sys.o(i.SYS_Print_Time))
 <BR><BR>[Stack]<UL><LI>Max Depth = 124<LI>Call Chain = SYS_Print_Time &rArr; HAL_RTC_GetDate &rArr; HAL_RTC_GetTime &rArr; RTC_DateUpdate &rArr; RTC_WeekDayNum
 </UL>
 <BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_GetTime
@@ -1398,7 +1402,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_SYS_Loop
 </UL>
 
-<P><STRONG><a name="[8a]"></a>SYS_Shutdown_All</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, app_sys.o(i.SYS_Shutdown_All))
+<P><STRONG><a name="[87]"></a>SYS_Shutdown_All</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, app_sys.o(i.SYS_Shutdown_All))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SYS_Shutdown_All
 </UL>
 <BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin

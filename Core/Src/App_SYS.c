@@ -134,7 +134,15 @@ void App_SYS_Loop(SHT40_t *sht) {
     if (hour >= 10 && hour < 21) {
         allow_running = 1;
     } else {
-        SYS_Shutdown_All();
+				// 1. 独立清零水泵与风扇的逻辑状态，保障 LED 状态的延续性
+        sys_ctrl.out_pump = 0;
+        sys_ctrl.out_fan  = 0;
+        
+        // 2. 定向关断水泵(PB13)与风扇(PB14)的物理引脚
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13 | GPIO_PIN_14, GPIO_PIN_RESET);
+        
+        // 3. 截断主循环，屏蔽后续的环境检测与硬件响应逻辑
+        return;
         return; // 时间不满足，强制关闭
     }
 

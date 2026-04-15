@@ -185,9 +185,9 @@ void App_SHT40_ParseCommand(SHT40_t *dev, char *cmd_line) {
     float val;
     
     if (sscanf(cmd_line, "set temp_bot %f", &val) == 1) {
-        //检查：下限必须严格小于当前上限
-        if (val >= dev->temp_top) {
-            printf("[App_SHT40 temp_bot must < temp_top (Curr: %.2f)]\r\n", dev->temp_top);
+        /* 检查：下限必须与当前上限保持至少 5.0℃ 的安全裕度 */
+        if (val > (dev->temp_top - 5.0f)) {
+            printf("[App_SHT40 temp_bot must be <= temp_top - 5.0 (Curr: %.2f)]\r\n", dev->temp_top);
             return;
         }
         dev->temp_bot = val;
@@ -195,9 +195,9 @@ void App_SHT40_ParseCommand(SHT40_t *dev, char *cmd_line) {
         printf("[App_SHT40 temp_bot set to %.2f℃]\r\n", val);
     } 
     else if (sscanf(cmd_line, "set temp_top %f", &val) == 1) {
-        // 检查：上限必须严格大于当前下限
-        if (val <= dev->temp_bot) {
-            printf("[App_SHT40 temp_top must be > temp_bot (Curr: %.2f)]\r\n", dev->temp_bot);
+        /* 检查：上限必须与当前下限保持至少 5.0℃ 的安全裕度 */
+        if (val < (dev->temp_bot + 5.0f)) {
+            printf("[App_SHT40 temp_top must be >= temp_bot + 5.0 (Curr: %.2f)]\r\n", dev->temp_bot);
             return;
         }
         dev->temp_top = val;
@@ -205,9 +205,9 @@ void App_SHT40_ParseCommand(SHT40_t *dev, char *cmd_line) {
         printf("[App_SHT40 temp_top set to %.2f℃]\r\n", val);
     }
     else if (sscanf(cmd_line, "set humi_bot %f", &val) == 1) {
-        /* 检查：湿度下限必须严格小于当前上限 */
-        if (val >= dev->humi_top) {
-            printf("[App_SHT40 humi_bot must be < humi_top (Curr: %.2f)]\r\n", dev->humi_top);
+        /* 检查：湿度下限必须与当前上限保持至少 10.0% 的安全裕度 */
+        if (val > (dev->humi_top - 10.0f)) {
+            printf("[App_SHT40 humi_bot must be <= humi_top - 10.0 (Curr: %.2f)]\r\n", dev->humi_top);
             return;
         }
         dev->humi_bot = val;
@@ -215,9 +215,9 @@ void App_SHT40_ParseCommand(SHT40_t *dev, char *cmd_line) {
         printf("[App_SHT40 humi_bot set to %.2f%%]\r\n", val);
     }
     else if (sscanf(cmd_line, "set humi_top %f", &val) == 1) {
-        /* 检查：湿度上限必须严格大于当前下限 */
-        if (val <= dev->humi_bot) {
-            printf("[App_SHT40 humi_top must be > humi_bot (Curr: %.2f)]\r\n", dev->humi_bot);
+        /* 检查：湿度上限必须与当前下限保持至少 10.0% 的安全裕度 */
+        if (val < (dev->humi_bot + 10.0f)) {
+            printf("[App_SHT40 humi_top must be >= humi_bot + 10.0 (Curr: %.2f)]\r\n", dev->humi_bot);
             return;
         }
         dev->humi_top = val;
