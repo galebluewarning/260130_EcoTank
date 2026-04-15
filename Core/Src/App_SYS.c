@@ -142,7 +142,6 @@ void App_SYS_Loop(SHT40_t *sht) {
         HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13 | GPIO_PIN_14, GPIO_PIN_RESET);
         
         // 3. 截断主循环，屏蔽后续的环境检测与硬件响应逻辑
-        return;
         return; // 时间不满足，强制关闭
     }
 
@@ -170,19 +169,19 @@ void App_SYS_Loop(SHT40_t *sht) {
             // 调用底层驱动读取 (注意：此处不使用加热功能，防止阻塞)
             if (App_SHT40_ReadTempHum(sht) == HAL_OK) {
                 SYS_Print_Time();
-                printf("[App_SYS Sampled:Humi=%.1f%% (Interval: %u ms)]\r\n", 
+                printf("\r\n[App_SYS Sampled:Humi=%.1f%% (Interval: %u ms)]\r\n", 
                        sht->humidity, sys_ctrl.current_interval);
                        last_read_error = 0; // 读取成功，清除错误标记
                        error_count = 0;     // 清除连续错误计数
                        App_Blink_SetFastMode(0);//PC13正常慢闪
             } else {
                 SYS_Print_Time();
-                printf("[App_SYS Sensor Read Error]\r\n");
+                printf("\r\n[App_SYS Sensor Read Error]\r\n");
                 //错误计数
                 error_count++;
                 App_Blink_SetFastMode(1);//PC13报错快闪
 
-                printf("[App_SYS Emergency Stop]\r\n");
+                printf("\r\n[App_SYS Emergency Stop]\r\n");
                 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13 | GPIO_PIN_14, GPIO_PIN_RESET);
                 sys_ctrl.out_pump = 0;
                 sys_ctrl.out_fan = 0;
@@ -190,7 +189,7 @@ void App_SYS_Loop(SHT40_t *sht) {
                 
                 if (error_count >= 10) {
                     SYS_Print_Time();
-                    printf("[App_SYS Sensor Failed 30s]\r\n");
+                    printf("\r\n[App_SYS Sensor Failed 30s]\r\n");
                     Error_Handler();
                 }
 
