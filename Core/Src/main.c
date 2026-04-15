@@ -18,7 +18,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "i2c.h"
 #include "iwdg.h"
 #include "rtc.h"
 #include "usart.h"
@@ -96,15 +95,13 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_I2C1_Init();
   MX_RTC_Init();
   MX_USART1_UART_Init();
   MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
   App_UART_RX_Init();  // 初始化串口接收管理器
   App_RTC_Init();     // 初始化 RTC 交互逻辑
-  App_SHT40_Init(&sht40, &hi2c1);//传入设备结构体地址&sht40和I2C句柄地址&hi2c1//
-  App_SYS_Init();                    // 初始化控制系统
+	App_SHT40_Init(&sht40); // 仅传入设备结构体地址，内部将自动通过软件 I2C 通信  App_SYS_Init();                    // 初始化控制系统
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -128,7 +125,7 @@ int main(void)
     if (cmd_ready == 1)
     {
         //回显收到的指令，方便调试
-        printf("\r\nCMD: %s\r\n", rx_line);
+        printf("\r\n\r\nCMD: %s\r\n", rx_line);
         // 1. RTC 模块解析接收到的字符串(rx_line) //
         App_RTC_ParseCommand(rx_line);
 				// 2. SHT40 模块解析接收到的字符串(rx_line)//
