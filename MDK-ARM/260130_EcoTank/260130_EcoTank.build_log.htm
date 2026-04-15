@@ -27,24 +27,26 @@ Project File Date:  04/15/2026
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target '260130_EcoTank'
-compiling App_RTC.c...
+compiling main.c...
+../Core/Inc/App_USART_Redirect.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif /* __APP_USART_REDIRECT_H__ */
 ../Core/Inc/App_RTC.h(29): warning:  #1-D: last line of file ends without a newline
   #endif /* __APP_RTC_H__ */
-..\Core\Src\App_RTC.c: 1 warning, 0 errors
-compiling App_SHT40.c...
+../Core/Inc/App_UART_RX_Handler.h(42): warning:  #1-D: last line of file ends without a newline
+  #endif /* __APP_UART_RX_HANDLER_H__ */
+../Core/Inc/App_Blink.h(37): warning:  #1-D: last line of file ends without a newline
+  #endif /* __APP_BLINK_H__ */
 ../Core/Inc/App_Simu_I2C.h(97): warning:  #1-D: last line of file ends without a newline
   #endif /* __APP_SIMU_I2C_H */
 ../Core/Inc/App_SHT40.h(105): warning:  #1-D: last line of file ends without a newline
   #endif /* __APP_SHT40_H__ */
-..\Core\Src\App_SHT40.c(237): warning:  #870-D: invalid multibyte character sequence
-          printf("Temp:%.2fâ„? Humi:%.2f%%\r\n", dev->temperature, dev->humidity);
-..\Core\Src\App_SHT40.c(251): warning:  #1-D: last line of file ends without a newline
-  }
-..\Core\Src\App_SHT40.c: 4 warnings, 0 errors
+../Core/Inc/App_SYS.h(55): warning:  #1-D: last line of file ends without a newline
+  #endif /* __APP_SYS_H__ */
+../Core/Src/main.c: 7 warnings, 0 errors
 linking...
 Program Size: Code=18292 RO-data=404 RW-data=44 ZI-data=1236  
 FromELF: creating hex file...
-"260130_EcoTank\260130_EcoTank.axf" - 0 Error(s), 5 Warning(s).
+"260130_EcoTank\260130_EcoTank.axf" - 0 Error(s), 7 Warning(s).
 
 <h2>Software Packages used:</h2>
 

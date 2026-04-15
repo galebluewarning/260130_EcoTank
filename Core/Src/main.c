@@ -137,7 +137,7 @@ int main(void)
 				if (strncmp(rx_line, "show", 4) == 0) 
         {
 					App_SHT40_Print(&sht40);
-					printf("ALL:%d  LED:%d  PUMP:%d  FAN:%d\r\n",sys_ctrl.sw_master, sys_ctrl.sw_led, sys_ctrl.sw_pump, sys_ctrl.sw_fan);
+					printf("ALL:%d  LED:%d  PUMP:%d  FAN:%d\r\n\r\n",sys_ctrl.sw_master, sys_ctrl.sw_led, sys_ctrl.sw_pump, sys_ctrl.sw_fan);
 				}
 
         /* [复位] 清空接收缓冲区，准备接收下一条指令 */
